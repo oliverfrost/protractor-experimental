@@ -2,14 +2,17 @@ var properties = require("../../properties");
 var LoginPage = require("../../lib/LoginPage");
 var WrestlersPage = require("../../lib/WrestelersPage");
 var NewWrestlerPage = require("../../lib/NewWrestlerPage");
+var Chance = require('chance');
+
 
 describe('Create new wrestler', function () {
+    let chance = new Chance();
+    var wrestlersPage = new WrestlersPage(),
+        newWrestlerPage = new NewWrestlerPage();
 
     beforeEach(function () {
         browser.driver.manage().window().maximize();
         browser.manage().deleteAllCookies();
-        // var wrestlersPage = new WrestlersPage();
-        // var newWrestlerPage = new NewWrestlerPage();
 
         LoginPage.open();
         LoginPage.typeLogin(properties.login);
@@ -18,19 +21,21 @@ describe('Create new wrestler', function () {
     });
     
     it('Create wrestler', function () {
-        var wrestlersPage = new WrestlersPage();
+        let firstName = chance.last(),
+            lastName = chance.last(),
+            middle = chance.last(),
+            year = chance.year({min: 2013, max: 2017});
+
         wrestlersPage.newWrestler();
-        console.log("123");
-        var newWrestlerPage = new NewWrestlerPage();
-        newWrestlerPage.typeLastName("Dima");
-        newWrestlerPage.typeFirstName("Zhora");
-        newWrestlerPage.typeDateOfBirth("12-12-12");
-        newWrestlerPage.typeMiddleName("Junior");
+        newWrestlerPage.typeLastName(lastName);
+        newWrestlerPage.typeFirstName(firstName);
+        newWrestlerPage.typeDateOfBirth("07-10-90");
+        newWrestlerPage.typeMiddleName(middle);
         newWrestlerPage.selectRegion("AR Krym");
         newWrestlerPage.selectFst("Kolos");
         newWrestlerPage.selectStyle("FS");
         newWrestlerPage.selectAge("Cadet");
-        newWrestlerPage.selectYear("2014");
+        newWrestlerPage.selectYear(year);
         expect(newWrestlerPage.isCreateButtonClickable()).toBeTruthy("Create button should be active");
     });
 });
