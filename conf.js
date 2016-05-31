@@ -8,17 +8,20 @@ exports.config = {
         'browserName': 'chrome'
     },
 
+
     specs: ['./test/specs/**/*.js'],
 
 
     suites: {
-        homepage: 'tests/e2e/homepage/**/*Spec.js',
-        search: ['tests/e2e/contact_search/**/*Spec.js',
-            'tests/e2e/venue_search/**/*Spec.js']
+        login: './test/specs/login.js',
+        filters: './test/specs/filters.js'
+
+        // search: ['tests/e2e/contact_search/**/*Spec.js',
+        //     'tests/e2e/venue_search/**/*Spec.js']
     },
-    
-    
+
+
     jasmineNodeOpts: {
-        showColors: true, 
+        showColors: true,
     }
 };

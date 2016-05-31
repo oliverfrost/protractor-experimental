@@ -1,11 +1,10 @@
 var properties = require("../../properties");
 var LoginPage = require("../../lib/LoginPage");
-var SelectWrapper = require("../../lib/SelectWrapper");
 let WrestlersPage = require("../../lib/WrestelersPage");
 
-describe('Protractor Login Suite', function () {
+describe('Changing amount of records on the page', function () {
 
-    beforeEach(function() {
+    beforeEach(function () {
         browser.driver.manage().window().maximize();
         browser.manage().deleteAllCookies();
 
@@ -14,9 +13,8 @@ describe('Protractor Login Suite', function () {
         LoginPage.typePassword(properties.password);
         LoginPage.clickSubmitButton();
     });
-    
-    
-    
+  
+
     it('Should verify 25 wrestlers are listed on the page', function () {
         let wrestlersPage = new WrestlersPage();
 
@@ -39,5 +37,4 @@ describe('Protractor Login Suite', function () {
         wrestlersPage.setAmountOfRecordsOnPage(100);
         expect(wrestlersPage.allRecordsOnThePage.count()).toBe(100);
     });
-    
 });
