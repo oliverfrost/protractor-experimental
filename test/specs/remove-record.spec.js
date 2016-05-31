@@ -1,7 +1,7 @@
 let properties = require("../../properties");
 let LoginPage = require("../../lib/LoginPage");
 let WrestlersPage = require("../../lib/WrestlersPage");
-let NewRestlerPage = require("../../lib/NewWrestlerPage");
+let NewWrestlerPage = require("../../lib/NewWrestlerPage");
 
 
 describe('Remove record from the list', function () {
@@ -16,25 +16,19 @@ describe('Remove record from the list', function () {
         LoginPage.clickSubmitButton();
     });
 
-    
 
+    fit('Should remove first record from the table', function () {
+        wrestlersPage = new WrestlersPage();
+        newWrestlerPage = new NewWrestlerPage();
 
-        it('Should remove record from the table', function() {
-            let recordId = 6363;
-
-            wrestlersPage = new WrestlersPage();
-            newRestlerPage = new NewWrestlerPage();
-
-
-            wrestlersPage.getRecordRow().click();
-            newRestlerPage.clickDeleteButton();
-
-            wrestlersPage.
-
-
-
-    
-
-        });
-
+        wrestlersPage.getRecordIdByIndex(1).then(function (id) {
+            wrestlersPage.getRowById(id).click();
+            newWrestlerPage.clickDeleteButton();
+            newWrestlerPage.confirmRecordRemoval();
+            wrestlersPage.searchForRecord(id);
+            
+            expect(wrestlersPage.allRecordsOnThePage.count()).toBe(0);
+        })
+    });
 });
+
