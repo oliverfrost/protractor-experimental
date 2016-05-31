@@ -1,6 +1,6 @@
 var properties = require("../../properties");
 var LoginPage = require("../../lib/LoginPage");
-var WrestlersPage = require("../../lib/WrestelersPage");
+var WrestlersPage = require("../../lib/WrestlersPage");
 var NewWrestlerPage = require("../../lib/NewWrestlerPage");
 var Chance = require('chance');
 
@@ -20,7 +20,7 @@ describe('Create new wrestler', function () {
         LoginPage.clickSubmitButton();
     });
     
-    it('Create wrestler', function () {
+    fit('Create wrestler', function () {
         let firstName = chance.last(),
             lastName = chance.last(),
             middle = chance.last(),
