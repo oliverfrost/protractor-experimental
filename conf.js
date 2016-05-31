@@ -13,8 +13,8 @@ exports.config = {
 
 
     suites: {
-        login: './test/specs/login.js',
-        filters: './test/specs/filters.js'
+        login: './test/specs/login.spec.js',
+        filters: './test/specs/filters.spec.js'
 
         // search: ['tests/e2e/contact_search/**/*Spec.js',
         //     'tests/e2e/venue_search/**/*Spec.js']

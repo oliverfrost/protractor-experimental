@@ -1,6 +1,6 @@
 var properties = require("../../properties");
 var LoginPage = require("../../lib/LoginPage");
-let WrestlersPage = require("../../lib/WrestelersPage");
+let WrestlersPage = require("../../lib/WrestlersPage");
 
 describe('Changing amount of records on the page', function () {
 
