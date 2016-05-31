@@ -20,7 +20,7 @@ describe('Create new wrestler', function () {
         LoginPage.clickSubmitButton();
     });
     
-    fit('Create wrestler', function () {
+    it('Create wrestler', function () {
         let firstName = chance.last(),
             lastName = chance.last(),
             middle = chance.last(),
