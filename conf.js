@@ -14,7 +14,8 @@ exports.config = {
 
     suites: {
         login: './test/specs/login.js',
-        filters: './test/specs/filters.js'
+        filters: './test/specs/filters.js',
+        new_wrestler: "./test/specs/new-wrestler.js"
 
         // search: ['tests/e2e/contact_search/**/*Spec.js',
         //     'tests/e2e/venue_search/**/*Spec.js']
