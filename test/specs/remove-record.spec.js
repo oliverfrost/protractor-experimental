@@ -18,15 +18,16 @@ describe('Remove record from the list', function () {
 
 
     it('Should remove first record from the table', function () {
-        wrestlersPage = new WrestlersPage();
-        newWrestlerPage = new NewWrestlerPage();
+        let wrestlersPage = new WrestlersPage(),
+            newWrestlerPage = new NewWrestlerPage(),
+            rowIndex = 1;
 
-        wrestlersPage.getRecordIdByIndex(1).then(function (id) {
+        wrestlersPage.getRecordIdByIndex(rowIndex).then(function (id) {
             wrestlersPage.getRowById(id).click();
             newWrestlerPage.clickDeleteButton();
             newWrestlerPage.confirmRecordRemoval();
             wrestlersPage.searchForRecord(id);
-            
+
             expect(wrestlersPage.allRecordsOnThePage.count()).toBe(0);
         })
     });
