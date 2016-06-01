@@ -30,6 +30,7 @@ describe('Create new wrestler', function () {
         newWrestlerPage.selectStyle("FS");
         newWrestlerPage.selectAge("Cadet");
         newWrestlerPage.selectYear(iWrestler.year);
+
         expect(newWrestlerPage.isCreateButtonClickable()).toBeTruthy("Create button should be active");
     });
 });
