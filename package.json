@@ -25,6 +25,7 @@
   "devDependencies": {
     "chance": "^1.0.3",
     "jasmine-allure-reporter": "^1.0.1",
+    "log4js": "^0.6.36",
     "protractor-jasmine2-html-reporter": "0.0.6"
   }
 }
