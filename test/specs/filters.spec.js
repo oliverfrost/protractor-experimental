@@ -1,29 +1,26 @@
 let user = require("../../user");
-let LoginPage = require("../../lib/LoginPage");
-let WrestlersListPage = require("../../lib/WrestlersListPage");
+let loginPage = require("../../lib/LoginPage");
+let wrestlersListPage = require("../../lib/WrestlersListPage");
 
 describe('Changing amount of records on the page', function () {
 
     beforeEach(function () {
         browser.manage().deleteAllCookies();
-        LoginPage.login(user.login, user.password);
+        loginPage.login(user.login, user.password);
     });
-
 
     it('Should verify 25 wrestlers are listed on the page', function () {
-        WrestlersListPage.setAmountOfRecordsOnPage(25);
-        expect(WrestlersListPage.allRecordsOnThePage.count()).toBe(25);
+        wrestlersListPage.setAmountOfRecordsOnPage(25);
+        expect(wrestlersListPage.allRecordsOnThePage.count()).toBe(25);
     });
-
 
     it('Should verify 50 wrestlers are listed on the page', function () {
-        WrestlersListPage.setAmountOfRecordsOnPage(50);
-        expect(WrestlersListPage.allRecordsOnThePage.count()).toBe(50);
+        wrestlersListPage.setAmountOfRecordsOnPage(50);
+        expect(wrestlersListPage.allRecordsOnThePage.count()).toBe(50);
     });
 
-
     it('Should verify 100 wrestlers are listed on the page', function () {
-        WrestlersListPage.setAmountOfRecordsOnPage(100);
-        expect(WrestlersListPage.allRecordsOnThePage.count()).toBe(100);
+        wrestlersListPage.setAmountOfRecordsOnPage(100);
+        expect(wrestlersListPage.allRecordsOnThePage.count()).toBe(100);
     });
 });
