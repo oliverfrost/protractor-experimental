@@ -17,11 +17,31 @@ exports.config = {
         filters: './test/specs/filters.spec.js',
         new_wrestler: "./test/specs/create-wrestler.spec.js",
         remove: './test/specs/remove-record.spec.js',
-        view: './test/specs/view-wrestler-info.spec.js'
+        view: './test/specs/view-wrestler-info.spec.js',
             
-        // search: ['tests/e2e/contact_search/**/*Spec.js',
-        //     'tests/e2e/venue_search/**/*Spec.js']
+        smoke: ['', '']
     },
+
+
+
+    beforeLaunch: function() {},
+
+    
+    onPrepare: function() {
+        browser.driver.manage().window().maximize();
+    },
+   
+
+    onComplete: function() {},
+
+    
+    onCleanUp: function(exitCode) {},
+
+    
+    afterLaunch: function(exitCode) {},
+
+    
+    restartBrowserBetweenTests: false,
 
 
     jasmineNodeOpts: {

@@ -1,34 +1,26 @@
 let properties = require("../../properties");
 let LoginPage = require("../../lib/LoginPage");
-let WrestlersPage = require("../../lib/WrestlersPage");
-let NewWrestlerPage = require("../../lib/NewWrestlerPage");
+let WrestlersListPage = require("../../lib/WrestlersListPage");
+let WrestlerPage = require("../../lib/WrestlerPage");
 
 
 describe('Remove record from the list', function () {
-
     beforeEach(function () {
-        browser.driver.manage().window().maximize();
         browser.manage().deleteAllCookies();
-
-        LoginPage.open();
-        LoginPage.typeLogin(properties.login);
-        LoginPage.typePassword(properties.password);
-        LoginPage.clickSubmitButton();
+        LoginPage.login(properties.login, properties.password);
     });
 
 
     it('Should remove first record from the table', function () {
-        let wrestlersPage = new WrestlersPage(),
-            newWrestlerPage = new NewWrestlerPage(),
-            rowIndex = 1;
+        let rowIndex = 1;
 
-        wrestlersPage.getRecordIdByIndex(rowIndex).then(function (id) {
-            wrestlersPage.getRowById(id).click();
-            newWrestlerPage.clickDeleteButton();
-            newWrestlerPage.confirmRecordRemoval();
-            wrestlersPage.searchForRecord(id);
+        WrestlersListPage.getRecordIdByIndex(rowIndex).then(function (id) {
+            WrestlersListPage.getRowById(id).click();
+            WrestlerPage.clickDeleteButton();
+            WrestlerPage.confirmRecordRemoval();
+            WrestlersListPage.searchForRecord(id);
 
-            expect(wrestlersPage.allRecordsOnThePage.count()).toBe(0);
+            expect(WrestlersListPage.allRecordsOnThePage.count()).toBe(0);
         })
     });
 });

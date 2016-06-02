@@ -2,7 +2,7 @@ var Chance = require('chance');
 
 class IWrestler {
     constructor(firstName, lastName, middle, year) {
-        var chance  = new Chance();
+        var chance = new Chance();
         this.firstName = chance.last();
         this.lastName = chance.last();
         this.middle = chance.last();

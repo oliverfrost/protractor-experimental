@@ -1,26 +1,31 @@
 let properties = require("../../properties");
 let LoginPage = require("../../lib/LoginPage");
-let WrestlersPage  = require("../../lib/WrestlersPage");
+let WrestlersListPage = require("../../lib/WrestlersListPage");
 
 
 describe('Login / Logout Suite', function () {
+    beforeEach(function () {
+        browser.manage().deleteAllCookies();
+    });
+
+
     it('Should login with correct credentials', function () {
         LoginPage.open();
         LoginPage.typeLogin(properties.login);
         LoginPage.typePassword(properties.password);
         LoginPage.clickSubmitButton();
 
-        expect(WrestlersPage.searchField.isDisplayed()).toBeTruthy();
-        expect(WrestlersPage.searchButton.isDisplayed()).toBeTruthy();
+        expect(WrestlersListPage.searchField.isDisplayed()).toBeTruthy();
+        expect(WrestlersListPage.searchButton.isDisplayed()).toBeTruthy();
     });
 
 
-    it('Should not login with incorrect credentials', function(){
+    it('Should not login with incorrect credentials', function () {
         LoginPage.open();
         LoginPage.typeLogin("incorrect_login");
         LoginPage.typePassword("incorrect_password");
         LoginPage.clickSubmitButton();
 
-        expect(LoginPage.incorrectCredentialsWarning.isDisplayed()).toBeTruthy();        
+        expect(LoginPage.incorrectCredentialsWarning.isDisplayed()).toBeTruthy();
     });
 });
