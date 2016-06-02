@@ -19,7 +19,9 @@
     "url": "https://github.com/oliverfrost/protractor-experimental/issues"
   },
   "homepage": "https://github.com/oliverfrost/protractor-experimental#readme",
-  "dependencies": {},
+  "dependencies": {
+    "jsdoc": "^3.4.0"
+  },
   "devDependencies": {
     "chance": "^1.0.3"
   }

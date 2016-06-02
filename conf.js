@@ -17,8 +17,9 @@ exports.config = {
         filters: './test/specs/filters.js',
         create_wrestler: "./test/specs/create-wrestler.spec.js",
         edit_wrestler: "./test/specs/edit-wrestler.spec.js",
-        remove: './test/specs/remove-record.spec.js'
-            
+        remove: './test/specs/remove-record.spec.js',
+        view: './test/specs/view-wrestler-info.spec.js'
+
         // search: ['tests/e2e/contact_search/**/*Spec.js',
         //     'tests/e2e/venue_search/**/*Spec.js']
     },
@@ -26,5 +27,6 @@ exports.config = {
 
     jasmineNodeOpts: {
         showColors: true,
+        defaultTimeoutInterval: 30000
     }
 };
