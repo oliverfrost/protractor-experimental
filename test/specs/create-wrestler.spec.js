@@ -6,22 +6,32 @@ let iWrestler = require("../../entities/IWrestler");
 
 describe('Create new wrestler', function () {
     beforeEach(function () {
+        this.lastname = iWrestler.lastName ;
+        this.firstname = iWrestler.firstName;
+        this.middlename = iWrestler.middle;
         browser.manage().deleteAllCookies();
         loginPage.login(user.login, user.password);
+        wrestlersListPage.newWrestler();
+        wrestlerPage.fillInWrestler(this.lastname, this.firstname, this.middlename, iWrestler.year);
     });
 
     it('Create button should be active', function () {
-        wrestlersListPage.newWrestler();
-        wrestlerPage.typeLastName(iWrestler.lastName);
-        wrestlerPage.typeFirstName(iWrestler.firstName);
-        wrestlerPage.typeDateOfBirth("07-10-1990");
-        wrestlerPage.typeMiddleName(iWrestler.middle);
-        wrestlerPage.selectRegion("AR Krym");
-        wrestlerPage.selectFst("Kolos");
-        wrestlerPage.selectStyle("FS");
-        wrestlerPage.selectAge("Cadet");
-        wrestlerPage.selectYear(iWrestler.year);
-
         expect(wrestlerPage.isCreateButtonActive).toBeTruthy("Create button should be active");
+    });
+    
+    it('Wrestler should be created', function () {
+        let fullName = this.lastname + " " + this.firstname + " " + this.middlename;
+
+        wrestlerPage.clickCreateButton();
+        wrestlersListPage.closeTab();
+        wrestlersListPage.searchForRecord(fullName);
+        wrestlersListPage.allRecordsOnThePage
+            .then(function (rows) {
+                expect(rows.length).toBe(1, "Searching should to show one line");
+            });
+        wrestlersListPage.getRowByIndex(1).getText()
+            .then(function (rowText) {
+                expect(rowText).toContain(fullName, `Row doesn't contain ${fullName}`);
+            });
     });
 });
