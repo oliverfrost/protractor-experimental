@@ -28,6 +28,37 @@ exports.config = {
     
     onPrepare: function() {
         browser.driver.manage().window().maximize();
+
+        var AllureReporter = require('jasmine-allure-reporter');
+        jasmine.getEnv().addReporter(new AllureReporter({
+            resultsDir: 'allure-results'
+        }));
+
+        
+        /* On Mac with allure command line tools installed
+         *
+         * allure generate .allure-results
+         * allure report open
+         */
+        jasmine.getEnv().afterEach(function(done){
+            browser.takeScreenshot().then(function (png) {
+                allure.createAttachment('Screenshot', function () {
+                    return new Buffer(png, 'base64')
+                }, 'image/png')();
+                done();
+            })
+        });
+
+
+        var Jasmine2HtmlReporter = require('protractor-jasmine2-html-reporter');
+        jasmine.getEnv().addReporter(
+            new Jasmine2HtmlReporter({
+                savePath: './target/reports/',
+                screenshotsFolder: 'screenshots',
+                takeScreenshots: true,
+                takeScreenshotsOnlyOnFailures: true
+            })
+        );
     },
    
 
