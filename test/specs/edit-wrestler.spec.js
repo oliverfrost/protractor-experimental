@@ -11,11 +11,17 @@ describe('Edit wrestler', function () {
     });
     
 
-    xit('Edit wrestler', function () {
-        let editId = WrestlersListPage.getRandomId();
-        WrestlersListPage.searchForRecord(editId);
-        console.log(editId);
-        browser.wait(WrestlerPage.lastName.isPresent(), 1000);
-        WrestlerPage.typeLastName(iWrestler.lastName);
+    it('Edit name of wrestler', function () {
+        WrestlersListPage.getRandomId()
+            .then(function (id) {
+                let lastName = iWrestler.lastName;
+                WrestlersListPage.searchForRecord(id);
+                browser.wait(WrestlerPage.lastName.isPresent(), 1000);
+                WrestlerPage.typeLastName(lastName);
+                WrestlerPage.saveRecord();
+                expect(WrestlersListPage.fetchActiveTabText()).toContain(lastName);
+                WrestlersListPage.closeTab();
+                expect(WrestlersListPage.getRowById(id).getText()).toContain(lastName);
+            });
     });
 });
