@@ -1,6 +1,6 @@
 let user = require("../../user");
-let LoginPage = require("../../lib/LoginPage");
-let WrestlersListPage = require("../../lib/WrestlersListPage");
+let loginPage = require("../../lib/LoginPage");
+let wrestlersListPage = require("../../lib/WrestlersListPage");
 
 
 describe('Login / Logout Suite', function () {
@@ -8,24 +8,22 @@ describe('Login / Logout Suite', function () {
         browser.manage().deleteAllCookies();
     });
 
-
     it('Should login with correct credentials', function () {
-        LoginPage.open();
-        LoginPage.typeLogin(user.login);
-        LoginPage.typePassword(user.password);
-        LoginPage.clickSubmitButton();
+        loginPage.open();
+        loginPage.typeLogin(user.login);
+        loginPage.typePassword(user.password);
+        loginPage.clickSubmitButton();
 
-        expect(WrestlersListPage.searchField.isDisplayed()).toBeTruthy();
-        expect(WrestlersListPage.searchButton.isDisplayed()).toBeTruthy();
+        expect(wrestlersListPage.searchField.isDisplayed()).toBeTruthy();
+        expect(wrestlersListPage.searchButton.isDisplayed()).toBeTruthy();
     });
 
-
     it('Should not login with incorrect credentials', function () {
-        LoginPage.open();
-        LoginPage.typeLogin("incorrect_login");
-        LoginPage.typePassword("incorrect_password");
-        LoginPage.clickSubmitButton();
+        loginPage.open();
+        loginPage.typeLogin("incorrect_login");
+        loginPage.typePassword("incorrect_password");
+        loginPage.clickSubmitButton();
 
-        expect(LoginPage.incorrectCredentialsWarning.isDisplayed()).toBeTruthy();
+        expect(loginPage.incorrectCredentialsWarning.isDisplayed()).toBeTruthy();
     });
 });
