@@ -23,6 +23,8 @@
     "jsdoc": "^3.4.0"
   },
   "devDependencies": {
-    "chance": "^1.0.3"
+    "chance": "^1.0.3",
+    "jasmine-allure-reporter": "^1.0.1",
+    "protractor-jasmine2-html-reporter": "0.0.6"
   }
 }
