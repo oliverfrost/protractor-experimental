@@ -1,4 +1,4 @@
-let properties = require("../../properties");
+let user = require("../../user");
 let LoginPage = require("../../lib/LoginPage");
 let WrestlersPage = require("../../lib/WrestlersPage");
 let NewWrestlerPage = require("../../lib/NewWrestlerPage");
@@ -11,8 +11,8 @@ describe('Remove record from the list', function () {
         browser.manage().deleteAllCookies();
 
         LoginPage.open();
-        LoginPage.typeLogin(properties.login);
-        LoginPage.typePassword(properties.password);
+        LoginPage.typeLogin(user.login);
+        LoginPage.typePassword(user.password);
         LoginPage.clickSubmitButton();
     });
 

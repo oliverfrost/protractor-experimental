@@ -1,4 +1,4 @@
-var properties = require("../../properties");
+var user = require("../../user");
 var LoginPage = require("../../lib/LoginPage");
 var WrestlersPage = require("../../lib/WrestlersPage");
 var NewWrestlerPage = require("../../lib/NewWrestlerPage");
@@ -14,8 +14,8 @@ describe('Create new wrestler', function () {
         browser.manage().deleteAllCookies();
 
         LoginPage.open();
-        LoginPage.typeLogin(properties.login);
-        LoginPage.typePassword(properties.password);
+        LoginPage.typeLogin(user.login);
+        LoginPage.typePassword(user.password);
         LoginPage.clickSubmitButton();
     });
     

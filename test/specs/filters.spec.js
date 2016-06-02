@@ -1,4 +1,4 @@
-var properties = require("../../properties");
+var user = require("../../user");
 var LoginPage = require("../../lib/LoginPage");
 let WrestlersPage = require("../../lib/WrestlersPage");
 
@@ -9,8 +9,8 @@ describe('Changing amount of records on the page', function () {
         browser.manage().deleteAllCookies();
 
         LoginPage.open();
-        LoginPage.typeLogin(properties.login);
-        LoginPage.typePassword(properties.password);
+        LoginPage.typeLogin(user.login);
+        LoginPage.typePassword(user.password);
         LoginPage.clickSubmitButton();
     });
   
