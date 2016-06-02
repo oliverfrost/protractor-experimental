@@ -1,29 +1,21 @@
-var user = require("../../user");
-var LoginPage = require("../../lib/LoginPage");
-var WrestlersPage = require("../../lib/WrestlersPage");
-var NewWrestlerPage = require("../../lib/NewWrestlerPage");
-var iWrestler = require("../../entities/IWrestler");
+let user = require("../../user");
+let LoginPage = require("../../lib/LoginPage");
+let WrestlersListPage = require("../../lib/WrestlersListPage");
+let WrestlerPage = require("../../lib/WrestlerPage");
+let iWrestler = require("../../entities/IWrestler");
 
 describe('Edit wrestler', function () {
-    var wrestlersPage = new WrestlersPage(),
-        newWrestlerPage = new NewWrestlerPage();
-
-    beforeEach(function () {
-
-        browser.driver.manage().window().maximize();
+     beforeEach(function () {
         browser.manage().deleteAllCookies();
-
-        LoginPage.open();
-        LoginPage.typeLogin(user.login);
-        LoginPage.typePassword(user.password);
-        LoginPage.clickSubmitButton();
+        LoginPage.login(user.login, user.password);
     });
+    
 
     xit('Edit wrestler', function () {
-        let editId = wrestlersPage.getRandomId();
-        wrestlersPage.searchForRecord(editId);
+        let editId = WrestlersListPage.getRandomId();
+        WrestlersListPage.searchForRecord(editId);
         console.log(editId);
-        browser.wait(newWrestlerPage.lastName.isPresent(), 1000);
-        newWrestlerPage.typeLastName(iWrestler.lastName);
+        browser.wait(WrestlerPage.lastName.isPresent(), 1000);
+        WrestlerPage.typeLastName(iWrestler.lastName);
     });
 });
