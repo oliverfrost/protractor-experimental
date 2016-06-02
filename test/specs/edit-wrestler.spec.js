@@ -16,7 +16,7 @@ describe('Edit wrestler', function () {
                 let lastName = iWrestler.lastName;
                 wrestlersListPage.searchForRecord(id);
                 wrestlerPage.typeLastName(lastName);
-                wrestlerPage.saveRecord();
+                wrestlerPage.clickCreateButton();
                 expect(wrestlersListPage.fetchActiveTabText()).toContain(lastName);
                 wrestlersListPage.closeTab();
                 expect(wrestlersListPage.getRowById(id).getText()).toContain(lastName);
