@@ -13,8 +13,8 @@ exports.config = {
 
 
     suites: {
-        login: './test/specs/login.js',
-        filters: './test/specs/filters.js',
+        login: './test/specs/login.spec.js',
+        filters: './test/specs/filters.spec.js',
         create: "./test/specs/create-wrestler.spec.js",
         edit: "./test/specs/edit-wrestler.spec.js",
         remove: './test/specs/remove-record.spec.js',

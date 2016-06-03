@@ -13,7 +13,7 @@ describe('Remove record from the list', function () {
     it('Should remove first record from the table', function () {
         let rowIndex = 1;
 
-        wrestlersListPage.getRecordIdByIndex(rowIndex).then(function (id) {
+        wrestlersListPage.getRecordIdByRowIndex(rowIndex).then(function (id) {
             wrestlersListPage.getRowById(id).click();
             wrestlerPage.clickDeleteButton();
             wrestlerPage.confirmRecordRemoval();
