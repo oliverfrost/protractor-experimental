@@ -25,7 +25,18 @@ describe('View wrestlers info and verify it matches info on main page', function
     });
 
 
-    xit('Should open wrestler`s info and check it', function () {
-        pending('Will be implemented later');
+    it('Should open first wrestler info and check it', function () {
+        let rowIndex = 1,
+            region = wrestlersListPage.getRegionByRowIndex(rowIndex),
+            fst = wrestlersListPage.getFSTByRowIndex(rowIndex),
+            license = wrestlersListPage.getLicenseByRowIndex(rowIndex),
+            style = wrestlersListPage.getStyleByRowIndex(rowIndex);
+       
+        wrestlersListPage.getRowByIndex(rowIndex).click();
+
+        expect(region).toBe(wrestlerPage.region);
+        expect(fst).toBe(wrestlerPage.fst);
+        expect(license).toBe(wrestlerPage.year);
+        expect(style).toBe(wrestlerPage.style);
     });
 });
