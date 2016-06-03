@@ -1,8 +1,8 @@
-let user = require("../../user");
-let loginPage = require("../../lib/LoginPage");
-let wrestlersListPage = require("../../lib/WrestlersListPage");
-let wrestlerPage = require("../../lib/WrestlerPage");
-let iWrestler = require("../../entities/IWrestler");
+let user = require("../../user"),
+    loginPage = require("../../lib/LoginPage"),
+    wrestlersListPage = require("../../lib/WrestlersListPage"),
+    wrestlerPage = require("../../lib/WrestlerPage"),
+    iWrestler = require("../../entities/IWrestler");
 
 describe('Create new wrestler', function () {
     beforeEach(function () {

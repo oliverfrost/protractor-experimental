@@ -1,6 +1,6 @@
-let user = require("../../user");
-let loginPage = require("../../lib/LoginPage");
-let wrestlersListPage = require("../../lib/WrestlersListPage");
+let user = require("../../user"),
+    loginPage = require("../../lib/LoginPage"),
+    wrestlersListPage = require("../../lib/WrestlersListPage");
 
 
 describe('Login / Logout Suite', function () {

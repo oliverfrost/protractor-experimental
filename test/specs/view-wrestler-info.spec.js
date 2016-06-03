@@ -1,7 +1,7 @@
-var user = require("../../user");
-var loginPage = require("../../lib/LoginPage");
-var wrestlerPage = require("../../lib/WrestlerPage");
-var wrestlersListPage = require("../../lib/WrestlersListPage");
+var user = require("../../user"),
+    loginPage = require("../../lib/LoginPage"),
+    wrestlerPage = require("../../lib/WrestlerPage"),
+    wrestlersListPage = require("../../lib/WrestlersListPage");
 
 describe('View wrestlers info and verify it matches info on main page', function () {
     beforeEach(function () {
