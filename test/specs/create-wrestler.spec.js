@@ -31,7 +31,13 @@ describe('Create new wrestler', function () {
             });
         wrestlersListPage.getRowByIndex(1).getText()
             .then(function (rowText) {
-                expect(rowText).toContain(fullName, `Row doesn't contain ${fullName}`);
+                expect(rowText).toContain(fullName, `Row should contain ${fullName}`);
             });
+    });
+
+    it('Wrestler should not been created with invalid field', function () {
+        expect(wrestlerPage.isCreateButtonActive).toBeTruthy("Create button should be active");
+        wrestlerPage.lastNameField.clear();
+        expect(wrestlerPage.isCreateButtonActive).toBeFalsy("Create button should not been active");
     });
 });
