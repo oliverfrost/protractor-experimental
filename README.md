@@ -3,43 +3,43 @@
 
 ##**Installation:**
 
-1. Copy repository:
+Copy repository:
 
 ```sh
 $ git clone https://github.com/oliverfrost/protractor-experimental
 ```
 
-2. Switch to the directory:
+Switch to the directory:
 
 ```sh
 $ cd protractor-experimental
 ```
 
-3. Install project dependencies:
+Install project dependencies:
 
 ```sh
 $ npm install
 ```
 
-4. Install protractor globally:
+Install protractor globally:
 
 ```sh
 $ npm install -g protractor
 ```
 
-5. Update web driver version:
+Update web driver version:
 
 ```sh
 $ webdriver-manager update
 ```
 
-6. Launch web driver server:
+Launch web driver server:
 
 ```sh
 $ webdriver-manager start
 ```
 
-7. Run tests:
+Run tests:
 
 ```sh
 $ protractor conf.js

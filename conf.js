@@ -19,6 +19,7 @@ exports.config = {
         edit: "./test/specs/edit-wrestler.spec.js",
         remove: './test/specs/remove-record.spec.js',
         view: './test/specs/view-wrestler-info.spec.js',
+        search: "./test/specs/search.filters.spec.js",
         smoke: ['', '']
     },
 
