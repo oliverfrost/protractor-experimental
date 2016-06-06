@@ -51,15 +51,15 @@ exports.config = {
         });
 
 
-        var Jasmine2HtmlReporter = require('protractor-jasmine2-html-reporter');
-        jasmine.getEnv().addReporter(
-            new Jasmine2HtmlReporter({
-                savePath: './target/reports/',
-                screenshotsFolder: 'screenshots',
-                takeScreenshots: true,
-                takeScreenshotsOnlyOnFailures: true
-            })
-        );
+        // var Jasmine2HtmlReporter = require('protractor-jasmine2-html-reporter');
+        // jasmine.getEnv().addReporter(
+        //     new Jasmine2HtmlReporter({
+        //         savePath: './target/reports/',
+        //         screenshotsFolder: 'screenshots',
+        //         takeScreenshots: true,
+        //         takeScreenshotsOnlyOnFailures: true
+        //     })
+        // );
     },
    
 

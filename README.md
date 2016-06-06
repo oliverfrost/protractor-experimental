@@ -66,7 +66,7 @@ Suites names can be found in [conf.js][confjs] file under 'suites' section.
 $ allure generate directory-with-results/
 ```
 
-4. And when report is generate successfully do:
+And when report is generate successfully do:
 
 ```sh
 $ allure report open
